@@ -496,7 +496,7 @@ blockquote p {
     max-width: 1200px;
   }
 }
-@media (min-width: 34em) {
+@media (min-width: 48em) {
   .page {
     width: 82.5%;
     float: right;
@@ -622,6 +622,7 @@ blockquote p {
   z-index: -1;
   box-shadow: 0 0 10px rgba(0,0,0,0.25);
   cursor: default;
+  pointer-events: none;
   transition: all ease-in-out 0.2s;
 }
 .social-icons::before {
@@ -665,15 +666,29 @@ blockquote p {
 .is-open .social-icons {
   visibility: visible;
   opacity: 1;
+  z-index: 20;
+  pointer-events: auto;
 }
 .social-links {
   display: none;
+  position: absolute;
+  right: 0;
+  min-width: 160px;
+  margin-top: 15px;
+  padding: 8px 10px;
   list-style-type: none;
+  border: 1px solid #f2f3f3;
+  border-radius: 4px;
+  background: #fff;
+  z-index: -1;
+  box-shadow: 0 0 10px rgba(0,0,0,0.25);
   cursor: default;
+  pointer-events: none;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
 .social-links .e-social-link {
+  display: block;
   color: #000;
 }
 .social-links .e-social-link .fa,
@@ -683,6 +698,11 @@ blockquote p {
 }
 .social-links .e-social-link:hover span {
   text-decoration: underline;
+}
+.is-open .social-links {
+  display: block;
+  z-index: 20;
+  pointer-events: auto;
 }
 .cv-links {
   color: #096494 !important;
@@ -702,7 +722,7 @@ blockquote p {
     padding-right: 0;
   }
 }
-@media (min-width: 34em) {
+@media (min-width: 48em) {
   .side-card {
     width: 15.25424%;
     min-width: 165px;
@@ -769,9 +789,16 @@ blockquote p {
   }
   .social-links {
     display: block;
+    position: static;
+    min-width: 0;
     margin-top: 0.8rem;
     margin-bottom: 1.6rem;
     padding: 0;
+    border: 0;
+    background: transparent;
+    z-index: auto;
+    box-shadow: none;
+    pointer-events: auto;
   }
   .cv-links {
     margin: 0;

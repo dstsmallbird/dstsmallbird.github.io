@@ -1,12 +1,15 @@
 $(function () {
-    // resize window
-    $(window).resize(function () {
-        if ($(window).width() < 1280 && $(window).width()>540) {
+    function syncPageLayout() {
+        if ($(window).width() < 1280 && $(window).width() >= 768) {
             $(".page").css({"width": $(window).width() - $(".side-card").width() - 90, "float": "left"})
         } else {
             $(".page").removeAttr("style")
         }
-    });
+    }
+
+    // resize window
+    $(window).resize(syncPageLayout);
+    syncPageLayout();
 
     // menu
     $(".menus_icon").click(function () {
